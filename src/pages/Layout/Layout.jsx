@@ -5,9 +5,9 @@ import Header from "../../components/Header";
 
 const Layout = ({ children }) => {
    return (
-      <div className="bg-gray-100 h-screen w-screen">
+      <div className="h-screen w-screen">
          <Header />
-         {children}
+         <div className="container flex flex-col gap-6">{children}</div>
          <Footer />
       </div>
    );

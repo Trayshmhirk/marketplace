@@ -1,0 +1,4 @@
+const FooterLogo =
+   "https://s3-alpha-sig.figma.com/img/ebea/51f8/0a12667bef07343293c6c32e8b3bb180?Expires=1710720000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eHiDftgvAaszEXw9JJbdJHqj-eWHesEMCZUZHll5XVyZCib6P~wWVPoUJmbvY~ySClfQdoR8yiteeDyiRr0mOEIlYfYVVFAa60Chsgmrjx~WqmMgjRbveF9kZL4Z0U55~tX1yn6WejYlw08kmIhCH~ydnsfiJI1B6Y6Jof5EEVKbCwoGP5dfCRCmyedziGPFosWQwEd638IsHO2UevBmTc6jHygTBGbtEpBZcGIRvA8jHuMXkKbg0vbZqPxwbJcBXdqVPLAtSez-FDiCtGzn3VM5jlIBJcc8vR6gJGQYv3cCSXp3m7ca0Z9JrnqHK6v31KdQ~0kZPocQ~Zszf-sHew__";
+
+export { FooterLogo };
