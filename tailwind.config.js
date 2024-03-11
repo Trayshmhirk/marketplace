@@ -21,6 +21,7 @@ export default {
             lotionWhite: "#FAFAFA",
             auroMetalSaurus: "#617587",
             chineseWhite: "#E1EDD9",
+            soap: "#D4D3EB",
          },
       },
    },

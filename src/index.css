@@ -16,8 +16,11 @@
       @apply h-[18px] md:h-[26px]
    }
 
+   .hero-title {
+      line-height: 70px;
+   }
+
    .card {
       box-shadow: 0px 4px 66px 0 rgba(0, 0, 0, 0.16);
-
    }
 }

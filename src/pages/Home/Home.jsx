@@ -1,16 +1,11 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React from "react";
 import { heroArtistImage, heroImage } from "../../image";
 import NFTData from "../../NFTData";
 import Hero from "../../components/Hero";
 import Card from "../../components/Card";
 
 const Home = () => {
-   const [displayCardBtn, setDisplayCardBtn] = useState(false);
-   const handleDisplayCardBtn = () => {
-      setDisplayCardBtn(!displayCardBtn);
-   };
-
    return (
       <div className="w-screen flex justify-center">
          <div className="container flex flex-col p-5 gap-20">
@@ -28,11 +23,7 @@ const Home = () => {
                </h2>
 
                <div className="flex flex-wrap justify-between gap-7">
-                  <Card
-                     NFTs={NFTData}
-                     handleDisplayCardBtn={handleDisplayCardBtn}
-                     displayCardBtn={displayCardBtn}
-                  />
+                  <Card NFTs={NFTData} />
                </div>
             </section>
          </div>

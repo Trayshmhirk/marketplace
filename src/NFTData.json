@@ -12,38 +12,38 @@
          {
             "id": 1,
             "name": "Night is coming",
-            "price": "0.1BTC",
-            "image": ""
+            "amount": "0.1BTC",
+            "nftImage": "https://s3-alpha-sig.figma.com/img/8a3f/56de/356f68c1201ceeb26793a259402c5709?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=I4YmU~1Z3XJuXIZxbs6kU3CnAd6MO7rfUwwQUgrkp09NKpqsxjg3KPWDnr~054btwcQkq7yYodOxkeUbIszeW35dUjxPKH2PPg51Pxq4Q-ue76ixGJH7n6ok4pIG9YBmWw6w2AGqOVUoclqtVDK8ZdbYu7PbHaBLiz4c1Oq6Zpciojen1KKx-DHNHwjvYlz25xL06C0DNMxp94HsuIcu7Qj5idAwptsehsm~h2GJIqe2663iKBgomltsElZIrlBKNlwghI6CTwpNYQUfi35ERU79~NuXPYXdEL1TZoOOU4qsb~YQ22VDH9cIpIYUQRS6xXnpACS29mVkBEn0VDhBfg__"
          },
          {
             "id": 2,
             "name": "With the stars",
-            "price": "0.1BTC",
-            "image": ""
+            "amount": "0.1BTC",
+            "nftImage": "https://s3-alpha-sig.figma.com/img/0add/c4f6/39879e8b4e9fe812d34a5bb5b3dc644e?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=mlQ56Hfy2qbH9qo0bW1GW-cHHbKorrnSw81AdeOqFY0jFcsdcR4bQR7QETDP5nlERczob0Wz9TLxZ0qOuCGG-mF9GeaboCOjz1JHZRHVQbIiFH4x7Yb4FL7RaiSPKN7L6bGHK2qEIBNbYTO9c~-g03xdbclpURH79IqeAaCPv9NSimCgbEuq1Vyv7UbzF2dN7RNZA4ergF5HGektwauuIMnMwq9bvle6XQWHsrptQ7KH3FgwUh873~ZqB99P3xqqlSVQK41n2y~FPwzhgAkaX8Vsff7eCMsFvWToqd~35KiMsc538g9gA0DuFOn9d9qMfu3oSpOO~Fd7eXs0wEkjyw__"
          },
          {
             "id": 3,
             "name": "Summer",
-            "price": "0.1BTC",
-            "image": ""
+            "amount": "0.1BTC",
+            "nftImage": "https://s3-alpha-sig.figma.com/img/6c62/56ad/8ea89140d28be474f687a8fdb64ac90a?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=NrMXLib5YUpqhx5dOyx2ZanzbNyyH1KcdlcQPyUPeSrjkNrhE5mqghVTeyXquxLujUsNKgfvXU2ZnG8mDSL6~T5gK~CaXrPrWoGNRvIuYqRrZb0Ca6v3-UDtuoTyD66sGWzHA0kYQUmxmcCCBzNFny5UDoKXFtsO3CxM1D~lHIcamzeMljPXg8Y9nZ6tJ5ptxsntuOwd-4YEAsgfo-XSz-bT-9X4iYbR3DGPVSAgINy0Ae8ZAz3lKzjL4EwWdVUMUwnFdctfZ~TNwC9HFvB3vsT~Ce6bnUiEkFlHF54cjITMhDJgEGA~xdVg0LyIIqeHLKTTTK8wkdXkF5LFzfBZpA__"
          },
          {
             "id": 4,
             "name": "Quiet",
-            "price": "0.1BTC",
-            "image": ""
+            "amount": "0.1BTC",
+            "nftImage": "https://s3-alpha-sig.figma.com/img/b68a/87e1/57118d84a52ff4d53dee141efc6f6841?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Bw2-B8dvfGXIx58ey5RAEAkFm8JreKaMKKwfNP854f1byI7uUrzI4Rfd1Y8P71yZcsjLgjhcbm2B~uZLqnVqGikS03J9q~IY3ITU0g2rCD07eWwEr7U8tjfdydAgE7rigqhHbuJEvm9uNvMuytQz1OEf6YUK5STvSWNYHX4kpQXpTNxHp1eYOHcWfOLqPMmbiLjaUPPsRRptDt19hyOOCXNh-qSa6pi75ujp4BQl4FtL34XwqN8aMZOXLMgK7nhnf0AIlTLlIhXekkg7ogJnvIXJVTOQclxuAVwkJYnj1ezYIc3orD-LcZklFrcHiRq1p3r~dYlmMKXB4Q6kSnRZyA__"
          },
          {
             "id": 5,
             "name": "Travel",
-            "price": "0.1BTC",
-            "image": ""
+            "amount": "0.1BTC",
+            "nftImage": "https://s3-alpha-sig.figma.com/img/672f/874b/e5a988d68a69a7b6bcfa3af6a89729de?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=E8-MY7RMlEfbnVP8W63dDKHdOJQDRsZfJ-msdLBz8NWXXP~kw9u0waFtC~BVgS8p35ZUJdPkEDpDVIY3r8m0kCuofh6avwSyYwjLNU3W-LfzrxmxPwO9haBHfNfelQ9ee4piDo0GONo98AbEQnUV5sUoKyyQ8VXrYC~F3WmWEWQluw9qB4sfrkBCshvfkjhaQUmuko5Km0SDoDlYXkxlAF5DCGmcZeqIzjYIdveKFCLC7y0WW8j97VwA1zOLNRF86DKx8Dxcnrm0FVJ-ijxQn1dxOMtx74VPWbc231cvhEX~XE7arTVxg8G2Fw4MgcU6iLPbkf0tQMvMWXHa2GFlVQ__"
          },
          {
             "id": 6,
             "name": "The rain",
-            "price": "0.1BTC",
-            "image": ""
+            "amount": "0.1BTC",
+            "nftImage": "https://s3-alpha-sig.figma.com/img/f7bd/7563/d45903625fb85ee2bd1d3d02c69d62e6?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iPgYR9l~fWFJfb-sCTteb0S43WHPgMeaO8QkbOdOPSC6C9S4XUV7jhTYbezUKqaTBRsvsSg0Usoj9MhDUeTPB~1TK62b2Sdgpx0V7b5D-767lgAxTZkAMEtpBwUsfl7r1ilVmA2PGzzHFco~hFRwDPMGhwBjpNh-tM9xAceHFDzMk3gYV9GNMHzwVg~xWpH73hzgfHToj56ua8ADVPqJ69cGHf2ILQMzSPRnFve1hMgUPxHqBvI1Ok9fQG0MI3BQhmOJozeOR1kpxIrI1Rtk3GnBqJFce2YT~vB85EvtMXzMR72RAGN3Y6rCDDC97di29ZIn-K7zpt2p6vCsWg93RA__"
          }
       ]
    },

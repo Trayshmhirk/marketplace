@@ -6,6 +6,7 @@ const CustomButton = ({
    isBlackBtn,
    isBorderBtn,
    isNFTCardBtn,
+   onClick,
 }) => {
    const btnStyle = `
       text-xs md:text-base rounded-[87px]
@@ -16,7 +17,19 @@ const CustomButton = ({
 
    `;
 
-   return <button className={btnStyle}>{children}</button>;
+   const handleClick = (e) => {
+      e.stopPropagation();
+
+      if (onClick) {
+         onClick();
+      }
+   };
+
+   return (
+      <button className={btnStyle} onClick={handleClick}>
+         {children}
+      </button>
+   );
 };
 
 export default CustomButton;

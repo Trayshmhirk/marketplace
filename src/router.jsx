@@ -5,6 +5,7 @@ import Layout from "./pages/Layout/Layout.jsx";
 
 // lazy loading
 const Home = lazy(() => import("./pages/Home/Home.jsx"));
+const Collections = lazy(() => import("./pages/Collections/Collections.jsx"));
 
 const Router = () => {
    return (
@@ -12,6 +13,7 @@ const Router = () => {
          <Layout>
             <Routes>
                <Route path="/" element={<Home />} />
+               <Route path="collections" element={<Collections />} />
             </Routes>
          </Layout>
       </Suspense>
