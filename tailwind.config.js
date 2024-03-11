@@ -20,6 +20,7 @@ export default {
             piggyPink: "#FADFE4",
             lotionWhite: "#FAFAFA",
             auroMetalSaurus: "#617587",
+            chineseWhite: "#E1EDD9",
          },
       },
    },
