@@ -6,7 +6,8 @@ const CustomButton = ({
    isBlackBtn,
    isBorderBtn,
    isNFTCardBtn,
-   onClick,
+   handleNavigate,
+   handleBtnClick,
 }) => {
    const btnStyle = `
       text-xs md:text-base rounded-[87px]
@@ -20,8 +21,12 @@ const CustomButton = ({
    const handleClick = (e) => {
       e.stopPropagation();
 
-      if (onClick) {
-         onClick();
+      if (handleBtnClick) {
+         handleBtnClick();
+      } else if (handleNavigate) {
+         handleNavigate();
+      } else {
+         null;
       }
    };
 

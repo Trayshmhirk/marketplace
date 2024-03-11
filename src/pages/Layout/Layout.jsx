@@ -3,12 +3,12 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, showFooter }) => {
    return (
-      <div className="h-screen w-screen">
+      <div className={`h-screen w-screen ${showFooter ? "bg-brightGray" : ""}`}>
          <Header />
          {children}
-         <Footer />
+         {showFooter ? <></> : <Footer />}
       </div>
    );
 };

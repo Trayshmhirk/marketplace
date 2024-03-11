@@ -5,7 +5,6 @@ import Card from "../../components/Card";
 
 const Collections = () => {
    const location = useLocation();
-   console.log(location.state.data);
    const NFTData = location.state.data;
 
    return (

@@ -35,7 +35,7 @@ const Card = ({ NFTs, isSubNFTs }) => {
                      <div className="h-full w-full flex items-center justify-center bg-[rgba(0,0,0,0.375)]">
                         <CustomButton
                            isNFTCardBtn
-                           onClick={() =>
+                           handleNavigate={() =>
                               isSubNFTs ? null : handleNavigate(item)
                            }
                         >
