@@ -2,16 +2,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "./CustomButton";
+import { walletSelector } from "../redux/selector";
+import { useSelector } from "react-redux";
 
 const Header = () => {
    const navigate = useNavigate();
-   const [toggleAccount, setToggleAmount] = useState(false);
+   const wallet = useSelector(walletSelector);
+
+   const [toggleAccount] = useState(!!wallet);
+
    const handleConnectWallet = () => {
       navigate("connect-wallet");
    };
 
-   const handleToggleAccount = () => {
-      setToggleAmount(!toggleAccount);
+   const handleShowAccount = () => {
+      //
    };
 
    return (
@@ -21,7 +26,7 @@ const Header = () => {
             <CustomButton
                isHeaderBtn
                handleBtnClick={
-                  toggleAccount ? handleToggleAccount : handleConnectWallet
+                  toggleAccount ? handleShowAccount : handleConnectWallet
                }
             >
                {toggleAccount ? "Account" : "Connect Wallet"}

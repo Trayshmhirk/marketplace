@@ -5,7 +5,7 @@ import Card from "../../components/Card";
 
 const Collections = () => {
    const location = useLocation();
-   const NFTData = location.state.data;
+   const NFTData = location.state?.data;
 
    return (
       <div className="w-screen flex justify-center">

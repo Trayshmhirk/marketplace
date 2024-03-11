@@ -1,10 +1,13 @@
 // import React from 'react'
+import { useDispatch } from "react-redux";
 import Wallet from "../../wallet";
+import { setWalletAddress } from "../../redux/walletSlice";
 
 const ConnectWallet = () => {
-   console.log(Wallet);
+   const dispatch = useDispatch();
+
    const handleSelectWallet = (walletAddress) => {
-      console.log(walletAddress);
+      dispatch(setWalletAddress(walletAddress));
    };
 
    return (
