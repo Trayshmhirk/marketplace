@@ -23,7 +23,9 @@ const Wallet = ({ setShowWallet, showWallet }) => {
 
    const currentWalletAddress = useSelector(selectWalletAddress);
    const walletData = useSelector(selectWalletData);
+   console.log(walletData);
    const walletNFTs = useSelector(selectWalletNFTs);
+   console.log(walletNFTs);
 
    const [toggleChangeWallet, setToggleChangeWallet] = useState(false);
 
@@ -34,7 +36,6 @@ const Wallet = ({ setShowWallet, showWallet }) => {
    const filteredWalletNFTs = walletNFTs?.filter(
       (wallet) => wallet.walletAddress === currentWalletAddress
    );
-   console.log(filteredWalletNFTs);
 
    const handleCloseWallet = () => {
       setShowWallet(!showWallet);

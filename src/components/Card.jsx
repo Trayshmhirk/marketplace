@@ -14,6 +14,7 @@ const Card = ({ NFTs, isSubNFTs }) => {
 
    const walletAddress = useSelector(selectWalletAddress);
    const walletNFTs = useSelector(selectWalletNFTs);
+   console.log(walletNFTs);
 
    const [displayedCardBtnId, setDisplayedCardBtnId] = useState(null);
 

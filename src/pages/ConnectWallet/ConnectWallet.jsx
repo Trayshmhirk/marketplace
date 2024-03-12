@@ -9,7 +9,6 @@ const ConnectWallet = () => {
    const navigate = useNavigate();
 
    const walletData = useSelector(selectWalletData);
-   console.log(walletData);
 
    const handleSelectWallet = (walletAddress) => {
       dispatch(setWalletAddress(walletAddress));
