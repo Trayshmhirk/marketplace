@@ -7,7 +7,7 @@ import toggleSlice from "./toggleSlice";
 const persistConfig = {
    key: "root",
    storage,
-   blacklist: ["toggle", "wallet"],
+   blacklist: ["toggle"],
 };
 
 const reducers = combineReducers({
