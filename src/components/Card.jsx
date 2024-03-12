@@ -5,7 +5,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "./CustomButton";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectWalletAddress, selectWalletNFTs } from "../redux/selector";
+import { selectWalletAddress, selectWalletData } from "../redux/selector";
 import { setWalletNFTs } from "../redux/walletSlice";
 
 const Card = ({ NFTs, isSubNFTs }) => {
@@ -13,8 +13,8 @@ const Card = ({ NFTs, isSubNFTs }) => {
    const dispatch = useDispatch();
 
    const walletAddress = useSelector(selectWalletAddress);
-   const walletNFTs = useSelector(selectWalletNFTs);
-   console.log(walletNFTs);
+   const walletData = useSelector(selectWalletData);
+   console.log(walletData);
 
    const [displayedCardBtnId, setDisplayedCardBtnId] = useState(null);
 
@@ -28,7 +28,7 @@ const Card = ({ NFTs, isSubNFTs }) => {
 
    const handleBuyNFT = (item) => {
       if (walletAddress) {
-         const updatedWalletData = walletNFTs.map((wallet) => {
+         const updatedWalletData = walletData.map((wallet) => {
             if (wallet.walletAddress === walletAddress) {
                // If the wallet address matches, update its NFTs array
                return {
