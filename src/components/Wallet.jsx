@@ -16,16 +16,15 @@ import {
 } from "../redux/selector";
 import { useNavigate } from "react-router-dom";
 import { clearWalletAdress } from "../redux/walletSlice";
+import { setToggleWalletAccount } from "../redux/toggleSlice";
 
-const Wallet = ({ setShowWallet, showWallet }) => {
+const Wallet = () => {
    const navigate = useNavigate();
    const dispatch = useDispatch();
 
    const currentWalletAddress = useSelector(selectWalletAddress);
    const walletData = useSelector(selectWalletData);
-   console.log(walletData);
    const walletNFTs = useSelector(selectWalletNFTs);
-   console.log(walletNFTs);
 
    const [toggleChangeWallet, setToggleChangeWallet] = useState(false);
 
@@ -38,7 +37,7 @@ const Wallet = ({ setShowWallet, showWallet }) => {
    );
 
    const handleCloseWallet = () => {
-      setShowWallet(!showWallet);
+      dispatch(setToggleWalletAccount());
    };
 
    const handleShowChangeWallet = () => {
@@ -46,7 +45,7 @@ const Wallet = ({ setShowWallet, showWallet }) => {
    };
 
    const handleChangeWallet = () => {
-      setShowWallet(!showWallet);
+      dispatch(setToggleWalletAccount());
       dispatch(clearWalletAdress());
       navigate("/connect-wallet");
    };

@@ -2,16 +2,22 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "./CustomButton";
-import { selectWalletAddress } from "../redux/selector";
-import { useSelector } from "react-redux";
+import {
+   selectWalletAddress,
+   selectToggleWalletAccount,
+} from "../redux/selector";
+import { setToggleWalletAccount } from "../redux/toggleSlice";
+import { useDispatch, useSelector } from "react-redux";
 import Wallet from "./Wallet";
 
 const Header = () => {
    const navigate = useNavigate();
+   const dispatch = useDispatch();
+
    const wallet = useSelector(selectWalletAddress);
+   const toggleWalletAccount = useSelector(selectToggleWalletAccount);
 
    const [toggleAccount, setToggleAccount] = useState();
-   const [showWallet, setShowWallet] = useState(false);
 
    useEffect(() => {
       setToggleAccount(!!wallet);
@@ -22,8 +28,8 @@ const Header = () => {
    };
 
    const handleShowWallet = () => {
-      //
-      setShowWallet(!showWallet);
+      //;
+      dispatch(setToggleWalletAccount());
 
       // Add overflow:hidden to body when the wallet is shown at md screens and lower
       // if (!showWallet && window.innerWidth <= 768) {
@@ -48,9 +54,7 @@ const Header = () => {
             </CustomButton>
          </div>
 
-         {showWallet && (
-            <Wallet setShowWallet={setShowWallet} showWallet={showWallet} />
-         )}
+         {toggleWalletAccount && <Wallet />}
       </header>
    );
 };

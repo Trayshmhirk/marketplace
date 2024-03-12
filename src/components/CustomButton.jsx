@@ -7,8 +7,10 @@ const CustomButton = ({
    isBorderBtn,
    isNFTCardBtn,
    isWalletBtn,
+   isCloseModalBtn,
    handleNavigate,
    handleBtnClick,
+   handleCloseModal,
 }) => {
    const btnStyle = `
       text-xs md:text-base rounded-[87px]
@@ -17,6 +19,7 @@ const CustomButton = ({
       ${isWalletBtn ? "w-full p-4 bg-darkGunmetal text-white" : ""}
       ${isBorderBtn ? "w-full p-4 border border-darkGunmetal xl:w-[245px]" : ""}
       ${isNFTCardBtn ? "w-[60%] flex items-center justify-center gap-2 p-4 bg-lotionWhite md:p-6 md:w-[70%]" : ""}
+      ${isCloseModalBtn ? "w-full bg-darkGunmetal text-white font-bold py-2 px-4" : ""}
 
    `;
 
@@ -27,6 +30,8 @@ const CustomButton = ({
          handleBtnClick();
       } else if (handleNavigate) {
          handleNavigate();
+      } else if (handleCloseModal) {
+         handleCloseModal();
       } else {
          null;
       }

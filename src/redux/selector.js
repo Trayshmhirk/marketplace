@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
 
 const selectWalletState = (state) => state.wallet;
+const selectToggleState = (state) => state.toggle;
 
 export const selectWalletAddress = createSelector(
    selectWalletState,
@@ -15,4 +16,14 @@ export const selectWalletData = createSelector(
 export const selectWalletNFTs = createSelector(
    selectWalletState,
    (wallet) => wallet.walletNFTs
+);
+
+export const selectToggleWalletAccount = createSelector(
+   selectToggleState,
+   (toggle) => toggle.showWalletAccount
+);
+
+export const selectShowBuyModal = createSelector(
+   selectToggleState,
+   (toggle) => toggle.showBuyModal
 );

@@ -5,8 +5,13 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "./CustomButton";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectWalletAddress, selectWalletData } from "../redux/selector";
+import {
+   selectToggleWalletAccount,
+   selectWalletAddress,
+   selectWalletData,
+} from "../redux/selector";
 import { setWalletNFTs } from "../redux/walletSlice";
+import { setShowBuyModal, setToggleWalletAccount } from "../redux/toggleSlice";
 
 const Card = ({ NFTs, isSubNFTs }) => {
    const navigate = useNavigate();
@@ -14,7 +19,7 @@ const Card = ({ NFTs, isSubNFTs }) => {
 
    const walletAddress = useSelector(selectWalletAddress);
    const walletData = useSelector(selectWalletData);
-   console.log(walletData);
+   const toggleWalletAccount = useSelector(selectToggleWalletAccount);
 
    const [displayedCardBtnId, setDisplayedCardBtnId] = useState(null);
 
@@ -23,6 +28,10 @@ const Card = ({ NFTs, isSubNFTs }) => {
    };
 
    const handleNavigate = (item) => {
+      if (toggleWalletAccount) {
+         dispatch(setToggleWalletAccount());
+      }
+
       navigate("collections", { state: { data: item } });
    };
 
@@ -41,6 +50,7 @@ const Card = ({ NFTs, isSubNFTs }) => {
             }
          });
 
+         dispatch(setShowBuyModal());
          dispatch(setWalletNFTs(updatedWalletData));
          setDisplayedCardBtnId(item.id === displayedCardBtnId ? null : item.id);
       } else {
