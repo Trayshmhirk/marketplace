@@ -2,10 +2,12 @@
 import React from "react";
 import { heroArtistImage, heroImage } from "../../image";
 import NFTData from "../../NFTData";
+import Wallet from "../../wallet";
 import Hero from "../../components/Hero";
 import Card from "../../components/Card";
 
 const Home = () => {
+   console.log(Wallet);
    return (
       <div className="w-screen flex justify-center">
          <div className="container flex flex-col p-5 gap-20">

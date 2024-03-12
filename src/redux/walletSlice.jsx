@@ -2,7 +2,7 @@ import {
    createSlice,
    // createAsyncThunk
 } from "@reduxjs/toolkit";
-import wallet from "../../public/wallet.json";
+import wallet from "../wallet";
 
 // export const fetchWalletData = createAsyncThunk(
 //    "wallet/fetchWalletData",
