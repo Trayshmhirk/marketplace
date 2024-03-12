@@ -6,6 +6,7 @@ import walletSlice from "./walletSlice";
 const persistConfig = {
    key: "root",
    storage,
+   blacklist: ["wallet"],
 };
 
 const reducers = combineReducers({
