@@ -17,14 +17,14 @@ const Hero = ({
          <div
             className={`h-fit flex flex-col-reverse justify-between gap-9 p-6 rounded-2xl ${isCollectionPage ? "" : "bg-brightGray"} md:rounded-[30px] md:py-9 md:px-16 md:flex-row xl:py-12 xl:px-20 xl:h-[513px]`}
          >
-            <div className="w-full flex flex-col self-center gap-10 md:w-fit">
-               <div className="flex flex-col items-start gap-8">
-                  <span className="text-xs rounded-[87px] bg-piggyPink py-2 px-6 md:px-9">
+            <div className="w-full flex flex-col self-center gap-8 md:gap-10 md:w-fit">
+               <div className="flex flex-col gap-5 md:items-start md:gap-8">
+                  <span className="w-fit text-xs rounded-[87px] bg-piggyPink py-2 px-6 md:px-9">
                      Trending now
                   </span>
 
                   <div className="flex flex-col gap-6">
-                     <div className="flex flex-col gap-3">
+                     <div className="flex flex-col md:gap-3">
                         <p className="text-base text-auroMetalSaurus lg:text-2xl">
                            {collection}
                         </p>
@@ -69,9 +69,12 @@ const Hero = ({
                   </div>
                )}
             </div>
-            <div className="hidden w-full rounded-lg overflow-hidden md:block md:w-[250px] md:h-full md:rounded-[30px] xl:rounded-[50px] lg:w-[430px]">
-               <img src={heroImage} className="w-full" alt="" />
-            </div>
+            <div
+               className="h-[300px] w-full rounded-xl overflow-hidden md:block md:w-[300px] md:h-full md:rounded-[30px] xl:rounded-[50px] lg:w-[430px]"
+               style={{
+                  background: `url(${heroImage}) no-repeat center center / cover`,
+               }}
+            ></div>
          </div>
       </section>
    );

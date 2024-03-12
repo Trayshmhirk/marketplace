@@ -41,4 +41,10 @@
       scrollbar-width: none;
       scroll-behavior: smooth;
    }
+
+   .wallet-container {
+      /* Initially set opacity to 0 */
+      transition: all 0.3s ease-in;
+      /* Add transition for opacity property */
+   }
 }

@@ -9,11 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "./CustomButton";
 import { useDispatch, useSelector } from "react-redux";
-import {
-   selectWalletAddress,
-   selectWalletData,
-   // selectWalletNFTs,
-} from "../redux/selector";
+import { selectWalletAddress, selectWalletData } from "../redux/selector";
 import { useNavigate } from "react-router-dom";
 import { clearWalletAdress } from "../redux/walletSlice";
 import { setToggleWalletAccount } from "../redux/toggleSlice";
@@ -24,17 +20,12 @@ const Wallet = () => {
 
    const currentWalletAddress = useSelector(selectWalletAddress);
    const walletData = useSelector(selectWalletData);
-   // const walletNFTs = useSelector(selectWalletNFTs);
 
    const [toggleChangeWallet, setToggleChangeWallet] = useState(false);
 
    const filteredCurrentWallet = walletData.filter(
       (wallet) => wallet.walletAddress === currentWalletAddress
    );
-
-   // const filteredWalletNFTs = walletNFTs?.filter(
-   //    (wallet) => wallet.walletAddress === currentWalletAddress
-   // );
 
    const handleCloseWallet = () => {
       dispatch(setToggleWalletAccount());
@@ -65,17 +56,17 @@ const Wallet = () => {
    }
 
    return (
-      <div className="absolute top-4 right-0 left-[35px] bottom-0 md:right-10 md:left-[unset] md:bottom-[unset]">
-         <div className="absolute z-[0] top-4 left-[-30px] bottom-0 w-16 bg-[rgba(0,0,0,0.05)] backdrop-blur-[10px] p-2 rounded-xl">
+      <div className="wallet-container fixed top-0 right-0 left-[40px] bottom-0 md:absolute md:top-5 md:right-10 md:left-[unset] md:bottom-[unset]">
+         <div className="absolute z-[0] top-4 left-[-40px] bottom-0 w-16 bg-[rgba(0,0,0,0.05)] rounded-xl rounded-b-none backdrop-blur-[10px] p-3 md:rounded-xl md:left-[-35px] md:p-2">
             <FontAwesomeIcon
                icon={faAngleDoubleRight}
-               className="text-base cursor-pointer"
+               className="text-xl cursor-pointer"
                onClick={handleCloseWallet}
             />
          </div>
 
          {/* wallet */}
-         <div className="relative z-50 w-[full] h-full flex flex-col gap-10 border-1 border-richBlack rounded-xl bg-white p-5 overflow-y-hidden md:rounded-3xl md:border-2 md:border-richBlack md:w-[350px] md:h-[650px] lg:w-[450px] lg:h-[700px]">
+         <div className="relative z-50 w-[full] h-full flex flex-col gap-10 border-1 border-richBlack rounded-xl rounded-r-none bg-white p-5 overflow-y-hidden md:rounded-3xl md:border-2 md:border-richBlack md:w-[350px] md:h-[650px] lg:w-[450px] lg:h-[700px]">
             <div className="flex justify-between items-center">
                <div className="flex items-center gap-3">
                   <div className="circle h-[35px] w-[35px] rounded-full bg-metallicBlue md:h-[50px] md:w-[50px]"></div>
@@ -96,7 +87,7 @@ const Wallet = () => {
                <div onClick={handleShowChangeWallet}>
                   <FontAwesomeIcon
                      icon={faArrowRightFromBracket}
-                     className="cursor-pointer"
+                     className="text-xl cursor-pointer"
                   />
                </div>
             </div>
