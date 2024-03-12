@@ -3,8 +3,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchWalletData = createAsyncThunk(
    "wallet/fetchWalletData",
    async () => {
-      const response = await fetch("/src/wallet.json");
+      const response = await fetch("../../src/wallet.json");
+      console.log(response);
       const data = await response.json();
+      console.log(data);
       return data;
    }
 );
