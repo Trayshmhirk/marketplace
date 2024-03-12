@@ -6,6 +6,18 @@
    body {
       @apply text-darkGunmetal bg-lotionWhite overflow-x-hidden;
    }
+
+   ::-webkit-scrollbar {
+      width: 0em;
+   }
+
+   ::-webkit-scrollbar-thumb {
+      background: none;
+   }
+
+   ::-webkit-scrollbar-track {
+      background: transparent;
+   }
 }
 
 @layer components {
