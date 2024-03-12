@@ -2,12 +2,15 @@
 import { useDispatch } from "react-redux";
 import Wallet from "../../wallet";
 import { setWalletAddress } from "../../redux/walletSlice";
+import { useNavigate } from "react-router-dom";
 
 const ConnectWallet = () => {
    const dispatch = useDispatch();
+   const navigate = useNavigate();
 
    const handleSelectWallet = (walletAddress) => {
       dispatch(setWalletAddress(walletAddress));
+      navigate(-1);
    };
 
    return (

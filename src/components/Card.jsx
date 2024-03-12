@@ -4,9 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "./CustomButton";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectWalletAddress } from "../redux/selector";
 
 const Card = ({ NFTs, isSubNFTs }) => {
    const navigate = useNavigate();
+   const walletAddress = useSelector(selectWalletAddress);
+
    const [displayedCardBtnId, setDisplayedCardBtnId] = useState(null);
 
    const handleDisplayCardBtn = (id) => {
@@ -15,6 +19,14 @@ const Card = ({ NFTs, isSubNFTs }) => {
 
    const handleNavigate = (item) => {
       navigate("collections", { state: { data: item } });
+   };
+
+   const handleBuyNFT = (item) => {
+      if (walletAddress) {
+         console.log(item);
+      } else {
+         navigate("/connect-wallet");
+      }
    };
 
    return (
@@ -36,7 +48,9 @@ const Card = ({ NFTs, isSubNFTs }) => {
                         <CustomButton
                            isNFTCardBtn
                            handleNavigate={() =>
-                              isSubNFTs ? null : handleNavigate(item)
+                              isSubNFTs
+                                 ? handleBuyNFT(item)
+                                 : handleNavigate(item)
                            }
                         >
                            <span>{`${isSubNFTs ? "Buy" : "Go to collection"}`}</span>

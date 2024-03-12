@@ -1,8 +1,8 @@
 import { createSelector } from "reselect";
 
-const selectWalletAddress = (state) => state.wallet;
+const selectWalletState = (state) => state.wallet;
 
-export const walletSelector = createSelector(
-   selectWalletAddress,
+export const selectWalletAddress = createSelector(
+   selectWalletState,
    (wallet) => wallet.walletAddress
 );

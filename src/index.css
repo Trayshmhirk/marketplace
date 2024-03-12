@@ -8,7 +8,6 @@
    }
 }
 
-
 @layer components {
 
 
@@ -26,5 +25,9 @@
 
    .connect {
       height: calc(100vh - 100px);
+   }
+
+   .wallet-body {
+      height: calc(100% - 100px);
    }
 }

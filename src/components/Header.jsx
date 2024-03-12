@@ -1,22 +1,36 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomButton from "./CustomButton";
-import { walletSelector } from "../redux/selector";
+import { selectWalletAddress } from "../redux/selector";
 import { useSelector } from "react-redux";
+import Wallet from "./Wallet";
 
 const Header = () => {
    const navigate = useNavigate();
-   const wallet = useSelector(walletSelector);
+   const wallet = useSelector(selectWalletAddress);
 
-   const [toggleAccount] = useState(!!wallet);
+   const [toggleAccount, setToggleAccount] = useState();
+   const [showWallet, setShowWallet] = useState(false);
+
+   useEffect(() => {
+      setToggleAccount(!!wallet);
+   }, [wallet]);
 
    const handleConnectWallet = () => {
-      navigate("connect-wallet");
+      navigate("/connect-wallet");
    };
 
-   const handleShowAccount = () => {
+   const handleShowWallet = () => {
       //
+      setShowWallet(!showWallet);
+
+      // Add overflow:hidden to body when the wallet is shown at md screens and lower
+      if (!showWallet && window.innerWidth <= 768) {
+         document.body.style.overflow = "hidden";
+      } else {
+         document.body.style.overflow = "auto";
+      }
    };
 
    return (
@@ -26,12 +40,16 @@ const Header = () => {
             <CustomButton
                isHeaderBtn
                handleBtnClick={
-                  toggleAccount ? handleShowAccount : handleConnectWallet
+                  toggleAccount ? handleShowWallet : handleConnectWallet
                }
             >
                {toggleAccount ? "Account" : "Connect Wallet"}
             </CustomButton>
          </div>
+
+         {showWallet && (
+            <Wallet setShowWallet={setShowWallet} showWallet={showWallet} />
+         )}
       </header>
    );
 };
