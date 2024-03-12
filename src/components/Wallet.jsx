@@ -31,10 +31,12 @@ const Wallet = () => {
    const filteredCurrentWallet = walletData.filter(
       (wallet) => wallet.walletAddress === currentWalletAddress
    );
+   console.log(filteredCurrentWallet);
 
    const filteredWalletNFTs = walletNFTs?.filter(
       (wallet) => wallet.walletAddress === currentWalletAddress
    );
+   console.log(filteredWalletNFTs);
 
    const handleCloseWallet = () => {
       dispatch(setToggleWalletAccount());
@@ -110,8 +112,8 @@ const Wallet = () => {
                   </div>
 
                   <div className="flex flex-col gap-8 pb-5">
-                     {filteredWalletNFTs[0]?.NFTs.length > 0 ? (
-                        filteredWalletNFTs[0].NFTs.map((item, index) => (
+                     {filteredCurrentWallet[0]?.NFTs.length > 0 ? (
+                        filteredCurrentWallet[0].NFTs.map((item, index) => (
                            <div key={index}>
                               <div
                                  className="h-[227px]  w-full overflow-hidden rounded-[15px] md:rounded-[30px]"

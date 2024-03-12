@@ -23,15 +23,17 @@ const Layout = ({ children, showFooter }) => {
 
          {showModal && (
             <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex justify-center items-center">
-               <div className="modal-content flex flex-col gap-7 bg-white p-9 rounded-lg shadow-lg">
+               <div className="modal-content flex flex-col gap-9 bg-white p-9 rounded-lg shadow-lg">
                   <div className="modal-header">
-                     <h3 className="text-2xl font-bold">
+                     <h3 className="text-xl font-bold md:text-3xl">
                         NFT bought successfully!
                      </h3>
                   </div>
                   <div className="modal-body flex justify-center">
                      {/* Additional content can go here */}
-                     <p>Check your wallet to preview NFT</p>
+                     <p className="font-medium md:text-xl">
+                        Check your wallet to preview NFT
+                     </p>
                   </div>
                   <div className="modal-footer flex justify-center">
                      <CustomButton

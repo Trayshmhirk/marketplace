@@ -10,7 +10,7 @@ import {
    selectWalletAddress,
    selectWalletData,
 } from "../redux/selector";
-import { setWalletNFTs } from "../redux/walletSlice";
+import { setWalletData, setWalletNFTs } from "../redux/walletSlice";
 import { setShowBuyModal, setToggleWalletAccount } from "../redux/toggleSlice";
 
 const Card = ({ NFTs, isSubNFTs }) => {
@@ -50,8 +50,16 @@ const Card = ({ NFTs, isSubNFTs }) => {
             }
          });
 
+         // Update the walletData with the new wallet containing the bought NFT
          dispatch(setShowBuyModal());
-         dispatch(setWalletNFTs(updatedWalletData));
+         dispatch(setWalletData(updatedWalletData));
+         dispatch(
+            setWalletNFTs(
+               updatedWalletData.find(
+                  (wallet) => wallet.walletAddress === walletAddress
+               ).NFTs
+            )
+         );
          setDisplayedCardBtnId(item.id === displayedCardBtnId ? null : item.id);
       } else {
          navigate("/connect-wallet");
