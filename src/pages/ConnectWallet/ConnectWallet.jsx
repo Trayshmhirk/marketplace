@@ -1,12 +1,14 @@
 // import React from 'react'
-import { useDispatch } from "react-redux";
-import Wallet from "../../wallet";
+import { useDispatch, useSelector } from "react-redux";
 import { setWalletAddress } from "../../redux/walletSlice";
 import { useNavigate } from "react-router-dom";
+import { selectWalletData } from "../../redux/selector";
 
 const ConnectWallet = () => {
    const dispatch = useDispatch();
    const navigate = useNavigate();
+
+   const walletData = useSelector(selectWalletData);
 
    const handleSelectWallet = (walletAddress) => {
       dispatch(setWalletAddress(walletAddress));
@@ -21,7 +23,7 @@ const ConnectWallet = () => {
             </h1>
 
             <div className="flex gap-5 items-center md:gap-10">
-               {Wallet.map((wallet) => (
+               {walletData.map((wallet) => (
                   <div
                      key={wallet.id}
                      onClick={() => handleSelectWallet(wallet.walletAddress)}

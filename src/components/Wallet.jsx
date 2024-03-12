@@ -9,8 +9,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "./CustomButton";
 import { useDispatch, useSelector } from "react-redux";
-import { selectWalletAddress } from "../redux/selector";
-import WalletData from "../wallet.json";
+import {
+   selectWalletAddress,
+   selectWalletData,
+   selectWalletNFTs,
+} from "../redux/selector";
 import { useNavigate } from "react-router-dom";
 import { clearWalletAdress } from "../redux/walletSlice";
 
@@ -19,11 +22,19 @@ const Wallet = ({ setShowWallet, showWallet }) => {
    const dispatch = useDispatch();
 
    const currentWalletAddress = useSelector(selectWalletAddress);
+   const walletData = useSelector(selectWalletData);
+   const walletNFTs = useSelector(selectWalletNFTs);
+
    const [toggleChangeWallet, setToggleChangeWallet] = useState(false);
 
-   const currentWallet = WalletData.filter(
+   const filteredCurrentWallet = walletData.filter(
       (wallet) => wallet.walletAddress === currentWalletAddress
    );
+
+   const filteredWalletNFTs = walletNFTs?.filter(
+      (wallet) => wallet.walletAddress === currentWalletAddress
+   );
+   console.log(filteredWalletNFTs);
 
    const handleCloseWallet = () => {
       setShowWallet(!showWallet);
@@ -71,7 +82,9 @@ const Wallet = ({ setShowWallet, showWallet }) => {
 
                   <div className="flex items-center gap-3">
                      <span>
-                        {formatWalletAddress(currentWallet[0]?.walletAddress)}
+                        {formatWalletAddress(
+                           filteredCurrentWallet[0]?.walletAddress
+                        )}
                      </span>
                      <FontAwesomeIcon icon={faClone} />
                   </div>
@@ -87,7 +100,7 @@ const Wallet = ({ setShowWallet, showWallet }) => {
                <div className="">
                   <span className="text-sm text-gray">In your wallet</span>
                   <div className="text-4xl font-semibold text-richBlack">
-                     {currentWallet[0]?.balance}
+                     {filteredCurrentWallet[0]?.balance}
                   </div>
                </div>
 
@@ -97,11 +110,28 @@ const Wallet = ({ setShowWallet, showWallet }) => {
                   </div>
 
                   <div className="flex flex-col gap-8 pb-5">
-                     <div className="flex justify-center items-center py-6">
-                        <span>You dont own any NFts yet</span>
-                     </div>
+                     {filteredWalletNFTs[0]?.NFTs.length > 0 ? (
+                        filteredWalletNFTs[0].NFTs.map((item, index) => (
+                           <div key={index}>
+                              <div
+                                 className="h-[227px]  w-full overflow-hidden rounded-[15px] md:rounded-[30px]"
+                                 style={{
+                                    background: `url(${item.nftImage}) no-repeat center center / cover`,
+                                 }}
+                              ></div>
+                           </div>
+                        ))
+                     ) : (
+                        <>
+                           <div className="flex justify-center items-center py-6">
+                              <span>You dont own any NFTs yet</span>
+                           </div>
 
-                     <CustomButton isWalletBtn>Start shopping</CustomButton>
+                           <CustomButton isWalletBtn>
+                              Start shopping
+                           </CustomButton>
+                        </>
+                     )}
                   </div>
                </div>
 

@@ -4,20 +4,20 @@
       "name": "Wallet 1",
       "walletAddress": "OjAPb61QXuIXWMuLqqZ9bm79wfxrvy9cSflgStdiuFJ0yf",
       "balance": "0.133BTC",
-      "NFTS": []
+      "NFTs": []
    },
    {
       "id": 2,
       "name": "Wallet 2",
       "walletAddress": "GyIDF839hid8IFBY9hfb8DH8dh0f8UbfgF5ALhs9FBb88fb",
       "balance": "0.358BTC",
-      "NFTS": []
+      "NFTs": []
    },
    {
       "id": 3,
       "name": "Wallet 3",
       "walletAddress": "HFudfi834hsvSFj89Hf84bdDY08fb8CdyUD90BYfB9Shs9F",
       "balance": "0.790BTC",
-      "NFTS": []
+      "NFTs": []
    }
 ]

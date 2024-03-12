@@ -26,11 +26,12 @@ const Header = () => {
       setShowWallet(!showWallet);
 
       // Add overflow:hidden to body when the wallet is shown at md screens and lower
-      if (!showWallet && window.innerWidth <= 768) {
-         document.body.style.overflow = "hidden";
-      } else {
-         document.body.style.overflow = "auto";
-      }
+      // if (!showWallet && window.innerWidth <= 768) {
+      //    document.body.className = "overflow-hidden md:overflow-auto";
+      // } else {
+      //    document.body.className = "overflow-auto md:overflow-auto";
+      //    console.log("bodyyyy!");
+      // }
    };
 
    return (

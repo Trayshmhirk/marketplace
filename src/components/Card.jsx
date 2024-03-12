@@ -4,12 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "./CustomButton";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectWalletAddress } from "../redux/selector";
+import { useDispatch, useSelector } from "react-redux";
+import { selectWalletAddress, selectWalletNFTs } from "../redux/selector";
+import { setWalletNFTs } from "../redux/walletSlice";
 
 const Card = ({ NFTs, isSubNFTs }) => {
    const navigate = useNavigate();
+   const dispatch = useDispatch();
+
    const walletAddress = useSelector(selectWalletAddress);
+   const walletNFTs = useSelector(selectWalletNFTs);
 
    const [displayedCardBtnId, setDisplayedCardBtnId] = useState(null);
 
@@ -23,7 +27,21 @@ const Card = ({ NFTs, isSubNFTs }) => {
 
    const handleBuyNFT = (item) => {
       if (walletAddress) {
-         console.log(item);
+         const updatedWalletData = walletNFTs.map((wallet) => {
+            if (wallet.walletAddress === walletAddress) {
+               // If the wallet address matches, update its NFTs array
+               return {
+                  ...wallet,
+                  NFTs: [...wallet.NFTs, item],
+               };
+            } else {
+               // If the wallet address doesn't match, return the unchanged wallet object
+               return wallet;
+            }
+         });
+
+         dispatch(setWalletNFTs(updatedWalletData));
+         setDisplayedCardBtnId(item.id === displayedCardBtnId ? null : item.id);
       } else {
          navigate("/connect-wallet");
       }
