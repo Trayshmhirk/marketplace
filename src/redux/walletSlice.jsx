@@ -20,9 +20,8 @@ export const walletSlice = createSlice({
    initialState: {
       walletAddress: null,
       walletData: wallet,
-      walletNFTs: [],
-      status: "pending",
-      error: null,
+      // status: "pending",
+      // error: null,
    },
    reducers: {
       setWalletAddress: (state, action) => {
@@ -33,9 +32,6 @@ export const walletSlice = createSlice({
       },
       setWalletData: (state, action) => {
          state.walletData = action.payload;
-      },
-      setWalletNFTs: (state, action) => {
-         state.walletNFTs = action.payload;
       },
    },
    // extraReducers: (builder) => {
@@ -54,11 +50,7 @@ export const walletSlice = createSlice({
    // },
 });
 
-export const {
-   setWalletAddress,
-   clearWalletAdress,
-   setWalletData,
-   setWalletNFTs,
-} = walletSlice.actions;
+export const { setWalletAddress, clearWalletAdress, setWalletData } =
+   walletSlice.actions;
 
 export default walletSlice.reducer;

@@ -13,11 +13,6 @@ export const selectWalletData = createSelector(
    (wallet) => wallet.walletData
 );
 
-export const selectWalletNFTs = createSelector(
-   selectWalletState,
-   (wallet) => wallet.walletNFTs
-);
-
 export const selectToggleWalletAccount = createSelector(
    selectToggleState,
    (toggle) => toggle.showWalletAccount

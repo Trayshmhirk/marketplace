@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
    selectWalletAddress,
    selectWalletData,
-   selectWalletNFTs,
+   // selectWalletNFTs,
 } from "../redux/selector";
 import { useNavigate } from "react-router-dom";
 import { clearWalletAdress } from "../redux/walletSlice";
@@ -24,19 +24,17 @@ const Wallet = () => {
 
    const currentWalletAddress = useSelector(selectWalletAddress);
    const walletData = useSelector(selectWalletData);
-   const walletNFTs = useSelector(selectWalletNFTs);
+   // const walletNFTs = useSelector(selectWalletNFTs);
 
    const [toggleChangeWallet, setToggleChangeWallet] = useState(false);
 
    const filteredCurrentWallet = walletData.filter(
       (wallet) => wallet.walletAddress === currentWalletAddress
    );
-   console.log(filteredCurrentWallet);
 
-   const filteredWalletNFTs = walletNFTs?.filter(
-      (wallet) => wallet.walletAddress === currentWalletAddress
-   );
-   console.log(filteredWalletNFTs);
+   // const filteredWalletNFTs = walletNFTs?.filter(
+   //    (wallet) => wallet.walletAddress === currentWalletAddress
+   // );
 
    const handleCloseWallet = () => {
       dispatch(setToggleWalletAccount());
