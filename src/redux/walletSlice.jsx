@@ -9,9 +9,12 @@ export const walletSlice = createSlice({
       setWalletAddress: (state, action) => {
          state.walletAddress = action.payload;
       },
+      clearWalletAdress: (state) => {
+         state.walletAddress = null;
+      },
    },
 });
 
-export const { setWalletAddress } = walletSlice.actions;
+export const { setWalletAddress, clearWalletAdress } = walletSlice.actions;
 
 export default walletSlice.reducer;

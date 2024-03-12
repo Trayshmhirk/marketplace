@@ -1,23 +1,42 @@
-// import React from 'react'
+// eslint-disable-next-line no-unused-vars
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClone } from "@fortawesome/free-regular-svg-icons";
-import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
-import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons";
+import {
+   faArrowRightFromBracket,
+   faAngleDoubleRight,
+   faX,
+} from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "./CustomButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectWalletAddress } from "../redux/selector";
 import WalletData from "../wallet.json";
+import { useNavigate } from "react-router-dom";
+import { clearWalletAdress } from "../redux/walletSlice";
 
 const Wallet = ({ setShowWallet, showWallet }) => {
+   const navigate = useNavigate();
+   const dispatch = useDispatch();
+
    const currentWalletAddress = useSelector(selectWalletAddress);
+   const [toggleChangeWallet, setToggleChangeWallet] = useState(false);
 
    const currentWallet = WalletData.filter(
       (wallet) => wallet.walletAddress === currentWalletAddress
    );
-   console.log(currentWallet);
 
    const handleCloseWallet = () => {
       setShowWallet(!showWallet);
+   };
+
+   const handleShowChangeWallet = () => {
+      setToggleChangeWallet(!toggleChangeWallet);
+   };
+
+   const handleChangeWallet = () => {
+      setShowWallet(!showWallet);
+      dispatch(clearWalletAdress());
+      navigate("/connect-wallet");
    };
 
    function formatWalletAddress(walletAddress) {
@@ -45,7 +64,7 @@ const Wallet = ({ setShowWallet, showWallet }) => {
          </div>
 
          {/* wallet */}
-         <div className="wallet relative z-50 w-[full] h-full flex flex-col gap-10 border-1 border-richBlack rounded-xl bg-white p-5 overflow-y-hidden md:rounded-3xl md:border-2 md:border-richBlack md:w-[350px] md:h-[650px] lg:w-[450px] lg:h-[700px]">
+         <div className="relative z-50 w-[full] h-full flex flex-col gap-10 border-1 border-richBlack rounded-xl bg-white p-5 overflow-y-hidden md:rounded-3xl md:border-2 md:border-richBlack md:w-[350px] md:h-[650px] lg:w-[450px] lg:h-[700px]">
             <div className="flex justify-between items-center">
                <div className="flex items-center gap-3">
                   <div className="circle h-[35px] w-[35px] rounded-full bg-metallicBlue md:h-[50px] md:w-[50px]"></div>
@@ -58,7 +77,7 @@ const Wallet = ({ setShowWallet, showWallet }) => {
                   </div>
                </div>
 
-               <div>
+               <div onClick={handleShowChangeWallet}>
                   <FontAwesomeIcon icon={faArrowRightFromBracket} />
                </div>
             </div>
@@ -85,6 +104,27 @@ const Wallet = ({ setShowWallet, showWallet }) => {
                      <CustomButton isWalletBtn>Start shopping</CustomButton>
                   </div>
                </div>
+
+               {toggleChangeWallet && (
+                  <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-[rgba(255,255,255,0.95)]">
+                     <FontAwesomeIcon
+                        icon={faX}
+                        className="absolute top-10 right-10 text-xl font-bold"
+                        onClick={handleShowChangeWallet}
+                     />
+                     <div className="flex flex-col gap-8">
+                        <span className="text-black font-semibold">
+                           Do you want to change wallet?
+                        </span>
+                        <CustomButton
+                           isWalletBtn
+                           handleNavigate={handleChangeWallet}
+                        >
+                           Change Wallet
+                        </CustomButton>
+                     </div>
+                  </div>
+               )}
             </div>
          </div>
       </div>

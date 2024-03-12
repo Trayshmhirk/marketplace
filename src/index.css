@@ -30,4 +30,8 @@
    .wallet-body {
       height: calc(100% - 100px);
    }
+
+   .backdrop-blur {
+      backdrop-filter: 8px;
+   }
 }
