@@ -1,21 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+   createSlice,
+   // createAsyncThunk
+} from "@reduxjs/toolkit";
+import wallet from "/wallet.json";
 
-export const fetchWalletData = createAsyncThunk(
-   "wallet/fetchWalletData",
-   async () => {
-      const response = await fetch("/wallet.json");
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
-      return data;
-   }
-);
+// export const fetchWalletData = createAsyncThunk(
+//    "wallet/fetchWalletData",
+//    async () => {
+//       const response = await fetch("/wallet.json");
+//       console.log(response);
+//       const data = await response.json();
+//       console.log(data);
+//       return data;
+//    }
+// );
 
 export const walletSlice = createSlice({
    name: "wallet",
    initialState: {
       walletAddress: null,
-      walletData: [],
+      walletData: wallet,
       walletNFTs: [],
       status: "pending",
       error: null,
@@ -34,20 +38,20 @@ export const walletSlice = createSlice({
          state.walletNFTs = action.payload;
       },
    },
-   extraReducers: (builder) => {
-      builder
-         .addCase(fetchWalletData.pending, (state) => {
-            state.status = "loading";
-         })
-         .addCase(fetchWalletData.fulfilled, (state, action) => {
-            state.status = "success";
-            state.walletData = action.payload;
-         })
-         .addCase(fetchWalletData.rejected, (state, action) => {
-            state.status = "failed";
-            state.error = action.error.message;
-         });
-   },
+   // extraReducers: (builder) => {
+   //    builder
+   //       .addCase(fetchWalletData.pending, (state) => {
+   //          state.status = "loading";
+   //       })
+   //       .addCase(fetchWalletData.fulfilled, (state, action) => {
+   //          state.status = "success";
+   //          state.walletData = action.payload;
+   //       })
+   //       .addCase(fetchWalletData.rejected, (state, action) => {
+   //          state.status = "failed";
+   //          state.error = action.error.message;
+   //       });
+   // },
 });
 
 export const {
