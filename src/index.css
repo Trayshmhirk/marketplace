@@ -3,20 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+
    body {
       @apply text-darkGunmetal bg-lotionWhite overflow-x-hidden;
-   }
-
-   ::-webkit-scrollbar {
-      width: 0em;
-   }
-
-   ::-webkit-scrollbar-thumb {
-      background: none;
-   }
-
-   ::-webkit-scrollbar-track {
-      background: transparent;
+      scroll-behavior: smooth;
    }
 }
 
@@ -45,5 +35,10 @@
 
    .backdrop-blur {
       backdrop-filter: 8px;
+   }
+
+   .wallet-body {
+      scrollbar-width: none;
+      scroll-behavior: smooth;
    }
 }

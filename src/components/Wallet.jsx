@@ -88,12 +88,18 @@ const Wallet = () => {
                            filteredCurrentWallet[0]?.walletAddress
                         )}
                      </span>
-                     <FontAwesomeIcon icon={faClone} />
+                     <FontAwesomeIcon
+                        icon={faClone}
+                        className="cursor-pointer"
+                     />
                   </div>
                </div>
 
                <div onClick={handleShowChangeWallet}>
-                  <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                  <FontAwesomeIcon
+                     icon={faArrowRightFromBracket}
+                     className="cursor-pointer"
+                  />
                </div>
             </div>
 
@@ -141,7 +147,7 @@ const Wallet = () => {
                   <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-[rgba(255,255,255,0.95)]">
                      <FontAwesomeIcon
                         icon={faX}
-                        className="absolute top-10 right-10 text-xl font-bold"
+                        className="absolute top-10 right-10 text-xl font-bold cursor-pointer"
                         onClick={handleShowChangeWallet}
                      />
                      <div className="flex flex-col gap-8">

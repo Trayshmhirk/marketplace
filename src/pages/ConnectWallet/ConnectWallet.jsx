@@ -27,7 +27,7 @@ const ConnectWallet = () => {
                   <div
                      key={wallet.id}
                      onClick={() => handleSelectWallet(wallet.walletAddress)}
-                     className="h-[80px] w-[80px] flex items-center justify-center text-xs font-bold bg-lotionWhite rounded-2xl md:h-[150px] md:w-[150px] md:text-base lg:h-[174px] lg:w-[191px]"
+                     className="h-[80px] w-[80px] flex items-center justify-center text-xs font-bold bg-lotionWhite rounded-2xl cursor-pointer md:h-[150px] md:w-[150px] md:text-base lg:h-[174px] lg:w-[191px]"
                   >
                      {wallet.name}
                   </div>
