@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import nfts from "../NFTData.json";
+// import nfts from "../NFTData.json";
 
 export const nftsSlice = createSlice({
    name: "nfts",
    initialState: {
-      nftsData: nfts,
+      nftsData: [],
       currentNftCollection: {},
    },
    reducers: {
       setNfts: (state, action) => {
-         state.nfts = action.payload;
+         state.nftsData = action.payload;
       },
       setCurrentNftCollection: (state, action) => {
          state.currentNftCollection = action.payload;

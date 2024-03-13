@@ -6,7 +6,6 @@ import { selectCurrentNftCollection } from "../../redux/selector";
 
 const Collections = () => {
    const currentNftData = useSelector(selectCurrentNftCollection);
-   console.log(currentNftData);
 
    return (
       <div className="w-screen flex justify-center">
@@ -26,9 +25,15 @@ const Collections = () => {
                   NFTs
                </h2>
 
-               <div className="flex flex-wrap justify-between gap-10">
-                  <Card NFTs={currentNftData.subNFTs} isSubNFTs />
-               </div>
+               {currentNftData.subNFTs.length > 0 ? (
+                  <div className="flex flex-wrap justify-between gap-10">
+                     <Card NFTs={currentNftData.subNFTs} isSubNFTs />
+                  </div>
+               ) : (
+                  <span className="py-7 text-center text-auroMetalSaurus italic font-medium">
+                     There are currently no NFTs in this collection
+                  </span>
+               )}
             </section>
          </div>
       </div>

@@ -77,6 +77,13 @@ const Card = ({ NFTs, isSubNFTs }) => {
       }
    };
 
+   const truncateString = (str, num) => {
+      if (str.length <= num) {
+         return str;
+      }
+      return str.slice(0, num) + " ...";
+   };
+
    return (
       <>
          {NFTs.map((item) => (
@@ -134,7 +141,9 @@ const Card = ({ NFTs, isSubNFTs }) => {
                         <span className="text-sm text-auroMetalSaurus">
                            Price range: {item.priceRange}
                         </span>
-                        <p className="">{item.description}</p>
+                        <p className="">
+                           {truncateString(item.description, 70)}
+                        </p>
                      </div>
                   )}
                </div>
