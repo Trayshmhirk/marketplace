@@ -28,6 +28,7 @@ const Home = () => {
                   artistName="Léa Jacquot"
                   heroImage={heroImage}
                   isHomeHero
+                  NFTs={NFTsData}
                />
             </div>
 

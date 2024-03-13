@@ -49,7 +49,7 @@ const Card = ({ NFTs, isSubNFTs }) => {
          dispatch(setToggleWalletAccount());
       }
 
-      navigate("collections");
+      navigate("/collections");
       dispatch(setCurrentNftCollection(item));
    };
 

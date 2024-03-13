@@ -1,5 +1,15 @@
 // import React from 'react'
+import { useDispatch, useSelector } from "react-redux";
 import CustomButton from "./CustomButton";
+import {
+   selectToggleWalletAccount,
+   selectWalletAddress,
+   selectWalletData,
+} from "../redux/selector";
+import { setShowBuyModal, setToggleWalletAccount } from "../redux/toggleSlice";
+import { useNavigate } from "react-router-dom";
+import { setCurrentNftCollection } from "../redux/nftsSlice";
+import { setWalletData } from "../redux/walletSlice";
 
 const Hero = ({
    collection,
@@ -10,7 +20,50 @@ const Hero = ({
    heroImage,
    isCollectionPage,
    isHomeHero,
+   NFTs,
 }) => {
+   const navigate = useNavigate();
+   const dispatch = useDispatch();
+
+   const walletAddress = useSelector(selectWalletAddress);
+   const walletData = useSelector(selectWalletData);
+   const toggleWalletAccount = useSelector(selectToggleWalletAccount);
+
+   const nft = NFTs ? NFTs[0] : {};
+   const { subNFTs } = nft;
+
+   const handleBuyNFT = (item) => {
+      if (walletAddress) {
+         const updatedWalletData = walletData.map((wallet) => {
+            if (wallet.walletAddress === walletAddress) {
+               // If the wallet address matches, update its NFTs array
+               return {
+                  ...wallet,
+                  NFTs: [...wallet.NFTs, item],
+               };
+            } else {
+               // If the wallet address doesn't match, return the unchanged wallet object
+               return wallet;
+            }
+         });
+
+         // Update the walletData with the new wallet containing the bought NFT
+         dispatch(setShowBuyModal());
+         dispatch(setWalletData(updatedWalletData));
+      } else {
+         navigate("/connect-wallet");
+      }
+   };
+
+   const handleNavigate = (item) => {
+      if (toggleWalletAccount) {
+         dispatch(setToggleWalletAccount());
+      }
+
+      navigate("/collections");
+      dispatch(setCurrentNftCollection(item));
+   };
+
    return (
       <section className="hero">
          <div
@@ -27,16 +80,16 @@ const Hero = ({
                         <div className="flex flex-col gap-6">
                            <div className="flex flex-col md:gap-3">
                               <p className="text-base text-auroMetalSaurus lg:text-2xl">
-                                 {collection}
+                                 {`${nft.name} collection`}
                               </p>
                               <h1 className="text-[36px] font-extrabold text-black lg:text-[60px] lg:hero-text">
-                                 {title}
+                                 {subNFTs[1]?.name}
                               </h1>
                            </div>
 
                            <div className="flex items-center gap-4">
                               <img
-                                 src={heroArtistImage}
+                                 src={nft.artistImage}
                                  className="w-[68px] h-[68px]"
                                  alt=""
                               />
@@ -44,21 +97,31 @@ const Hero = ({
                                  <span className="text-xs text-auroMetalSaurus">
                                     Artist
                                  </span>
-                                 <p className="text-2xl">{artistName}</p>
+                                 <p className="text-2xl">{nft.artistName}</p>
                               </div>
                            </div>
                         </div>
                      </div>
 
                      <div className="hero-buttons flex flex-col gap-4 xl:flex-row">
-                        <CustomButton isBlackBtn>Buy</CustomButton>
-                        <CustomButton isBorderBtn>See collection</CustomButton>
+                        <CustomButton
+                           isBlackBtn
+                           handleBtnClick={() => handleBuyNFT(subNFTs[1])}
+                        >
+                           Buy
+                        </CustomButton>
+                        <CustomButton
+                           isBorderBtn
+                           handleNavigate={() => handleNavigate(nft)}
+                        >
+                           See collection
+                        </CustomButton>
                      </div>
                   </div>
                   <div
                      className="h-[300px] w-full rounded-xl overflow-hidden md:block md:w-[300px] md:h-full md:rounded-[30px] xl:rounded-[50px] lg:w-[430px]"
                      style={{
-                        background: `url(${heroImage}) no-repeat center center / cover`,
+                        background: `url(${subNFTs[1]?.nftImage}) no-repeat center center / cover`,
                      }}
                   ></div>
                </>
