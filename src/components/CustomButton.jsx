@@ -18,7 +18,7 @@ const CustomButton = ({
       ${isBlackBtn ? "w-full p-4 bg-darkGunmetal text-white xl:w-[245px]" : ""}
       ${isWalletBtn ? "w-full p-4 bg-darkGunmetal text-white" : ""}
       ${isBorderBtn ? "w-full p-4 border border-darkGunmetal xl:w-[245px]" : ""}
-      ${isNFTCardBtn ? "w-[60%] flex items-center justify-center gap-2 p-4 bg-lotionWhite md:p-6 md:w-[70%]" : ""}
+      ${isNFTCardBtn ? "w-[60%] flex items-center justify-center gap-2 p-4 bg-lotionWhite md:p-6 md:w-[70%] transform transition duration-500 hover:scale-90" : ""}
       ${isCloseModalBtn ? "w-full bg-darkGunmetal text-white font-bold py-2 px-4" : ""}
 
    `;

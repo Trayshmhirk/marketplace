@@ -25,7 +25,7 @@ const Collections = () => {
                   NFTs
                </h2>
 
-               <div className="flex flex-wrap justify-between gap-7">
+               <div className="flex flex-wrap justify-between gap-10">
                   <Card NFTs={NFTData.subNFTs} isSubNFTs />
                </div>
             </section>

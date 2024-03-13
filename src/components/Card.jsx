@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import CustomButton from "./CustomButton";
@@ -22,9 +22,25 @@ const Card = ({ NFTs, isSubNFTs }) => {
    const toggleWalletAccount = useSelector(selectToggleWalletAccount);
 
    const [displayedCardBtnId, setDisplayedCardBtnId] = useState(null);
+   const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+   useEffect(() => {
+      // Detect if the device supports touch
+      setIsTouchDevice("ontouchstart" in window);
+   }, []);
 
    const handleDisplayCardBtn = (id) => {
-      setDisplayedCardBtnId(id === displayedCardBtnId ? null : id);
+      if (!isTouchDevice) {
+         // For non-touch devices, toggle the button visibility on hover
+         setDisplayedCardBtnId(id === displayedCardBtnId ? null : id);
+      }
+   };
+
+   const handleClick = (id) => {
+      if (isTouchDevice) {
+         // For touch devices, toggle the button visibility on click
+         setDisplayedCardBtnId(id === displayedCardBtnId ? null : id);
+      }
    };
 
    const handleNavigate = (item) => {
@@ -64,8 +80,10 @@ const Card = ({ NFTs, isSubNFTs }) => {
          {NFTs.map((item) => (
             <div
                key={item.id}
-               className="card h-fit w-full flex flex-col gap-9 p-4 pb-6 rounded-[20px] bg-lotionWhite cursor-pointer md:rounded-[47px] md:w-[30.3%]"
-               onClick={() => handleDisplayCardBtn(item.id)}
+               className={`card h-fit w-full flex flex-col gap-9 p-4 pb-6 rounded-[20px] bg-lotionWhite cursor-pointer md:rounded-[47px] md:w-[45.3%] xl:w-[30.3%] transition-[transform] duration-300 ease-in-out ${displayedCardBtnId ? "hover:transform hover:-translate-y-3 " : ""}`}
+               onMouseEnter={() => handleDisplayCardBtn(item.id)}
+               onMouseLeave={() => handleDisplayCardBtn(null)}
+               onClick={() => handleClick(item.id)}
             >
                <div
                   className={`${isSubNFTs ? "h-[345px]" : "h-[227px]"}  w-full overflow-hidden rounded-[15px] md:rounded-[30px]`}
@@ -101,7 +119,7 @@ const Card = ({ NFTs, isSubNFTs }) => {
                         {item.name}
                      </h3>
                      <span
-                        className={`text-xs rounded-[87px] ${isSubNFTs ? "bg-soap" : "bg-chineseWhite"}  font-medium py-2 px-9`}
+                        className={`text-xs rounded-[87px] ${isSubNFTs ? "bg-soap" : "bg-chineseWhite"} font-medium py-2 px-9 md:px-7 lg:px-9`}
                      >
                         {item.amount}
                      </span>

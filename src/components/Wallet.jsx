@@ -34,6 +34,10 @@ const Wallet = () => {
 
    const handleCloseWallet = () => {
       dispatch(setToggleWalletAccount());
+
+      if (toggleChangeWallet) {
+         setToggleChangeWallet(!toggleChangeWallet);
+      }
    };
 
    const handleShowChangeWallet = () => {
