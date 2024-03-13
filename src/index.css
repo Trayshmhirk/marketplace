@@ -29,22 +29,53 @@
       height: calc(100vh - 100px);
    }
 
-   .wallet-body {
-      height: calc(100% - 100px);
-   }
-
    .backdrop-blur {
       backdrop-filter: 8px;
    }
 
    .wallet-body {
+      height: calc(100% - 100px);
       scrollbar-width: none;
       scroll-behavior: smooth;
    }
 
    .wallet-container {
-      /* Initially set opacity to 0 */
-      transition: all 0.3s ease-in;
-      /* Add transition for opacity property */
+      @apply fixed top-0 right-[-600px] w-[89.5%] bottom-0 md:absolute sm:w-[93.5%] md:top-5 md:w-fit md:bottom-[unset];
+   }
+
+   .wallet-active {
+      @apply right-0;
+      animation: slideIn 300ms ease-in-out;
+   }
+
+   .wallet-hidden {
+      opacity: 0;
+      animation: slideOut 300ms ease-in-out;
+   }
+
+   @keyframes slideIn {
+      from {
+         /* transform: translateX(120%); */
+         @apply right-[-600px] opacity-0;
+      }
+
+      to {
+         /* transform: translateX(0); */
+         opacity: 1;
+         @apply right-0 opacity-100;
+      }
+   }
+
+   /* Define the slide-out animation */
+   @keyframes slideOut {
+      from {
+         /* transform: translateX(0); */
+         @apply right-0 opacity-100;
+      }
+
+      to {
+         /* transform: translateX(120%); */
+         @apply right-[-600px] opacity-0;
+      }
    }
 }

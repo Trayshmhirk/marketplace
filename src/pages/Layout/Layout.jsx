@@ -15,7 +15,7 @@ const Layout = ({ children, showFooter }) => {
    };
    return (
       <div
-         className={`relative h-screen w-screen ${showFooter ? "bg-brightGray" : ""}`}
+         className={`relative h-screen w-screen overflow-x-hidden ${showFooter ? "bg-brightGray" : ""}`}
       >
          <Header />
          {children}
