@@ -9,10 +9,22 @@ const Hero = ({
    artistName,
    heroImage,
    isCollectionPage,
+   // isHomeHero,
 }) => {
    return (
-      <section className="hero">
-         <div className="lines"></div>
+      <section className="hero flex flex-col gap-3">
+         {isCollectionPage ? (
+            <></>
+         ) : (
+            <div className="lines h-[14px] flex items-center gap-4 px-6">
+               <div className="line h-full bg-brightGray rounded-3xl"></div>
+               <div className="line h-full bg-brightGray rounded-3xl"></div>
+               <div className="line h-full bg-brightGray rounded-3xl"></div>
+               <div className="line h-full bg-brightGray rounded-3xl"></div>
+               <div className="line h-full bg-brightGray rounded-3xl"></div>
+               <div className="line h-full bg-brightGray rounded-3xl"></div>
+            </div>
+         )}
 
          <div
             className={`h-fit flex flex-col-reverse justify-between gap-9 p-6 rounded-2xl ${isCollectionPage ? "" : "bg-brightGray"} md:rounded-[30px] md:py-9 md:px-16 md:flex-row xl:py-12 xl:px-20 xl:h-[513px]`}
@@ -33,7 +45,7 @@ const Hero = ({
                         </h1>
 
                         {isCollectionPage && (
-                           <p className="w-full xl:w-[600px]">
+                           <p className="w-full md:w-[250px] lg:w-[400px] xl:w-[600px]">
                               {/* {description} */}
                               Lorem ipsum dolor sit amet consectetur adipisicing
                               elit. Esse pariatur facere veritatis atque

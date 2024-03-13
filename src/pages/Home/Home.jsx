@@ -1,11 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { heroArtistImage, heroImage } from "../../image";
-import NFTData from "../../NFTData";
 import Hero from "../../components/Hero";
 import Card from "../../components/Card";
+import { useSelector } from "react-redux";
+import { selectNftsData } from "../../redux/selector";
 
 const Home = () => {
+   const NFTsData = useSelector(selectNftsData);
+
    return (
       <div className="w-screen flex justify-center">
          <div className="container flex flex-col p-5 gap-20">
@@ -23,7 +26,7 @@ const Home = () => {
                </h2>
 
                <div className="flex flex-wrap justify-between gap-10">
-                  <Card NFTs={NFTData} />
+                  <Card NFTs={NFTsData} />
                </div>
             </section>
          </div>

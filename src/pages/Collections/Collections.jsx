@@ -1,22 +1,23 @@
 // import React from "react";
-import { useLocation } from "react-router-dom";
 import Hero from "../../components/Hero";
 import Card from "../../components/Card";
+import { useSelector } from "react-redux";
+import { selectCurrentNftCollection } from "../../redux/selector";
 
 const Collections = () => {
-   const location = useLocation();
-   const NFTData = location.state?.data;
+   const currentNftData = useSelector(selectCurrentNftCollection);
+   console.log(currentNftData);
 
    return (
       <div className="w-screen flex justify-center">
          <div className="container flex flex-col p-5 gap-20">
             <Hero
                collection="Collection"
-               title={NFTData.name}
-               heroArtistImage={NFTData.artistImage}
-               artistName={NFTData.artistName}
-               heroImage={NFTData.nftImage}
-               description={NFTData.description}
+               title={currentNftData.name}
+               heroArtistImage={currentNftData.artistImage}
+               artistName={currentNftData.artistName}
+               heroImage={currentNftData.nftImage}
+               description={currentNftData.description}
                isCollectionPage
             />
 
@@ -26,7 +27,7 @@ const Collections = () => {
                </h2>
 
                <div className="flex flex-wrap justify-between gap-10">
-                  <Card NFTs={NFTData.subNFTs} isSubNFTs />
+                  <Card NFTs={currentNftData.subNFTs} isSubNFTs />
                </div>
             </section>
          </div>

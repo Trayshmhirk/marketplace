@@ -78,4 +78,8 @@
          @apply right-[-600px] opacity-0;
       }
    }
+
+   .line {
+      width: calc(100% / 5.2);
+   }
 }

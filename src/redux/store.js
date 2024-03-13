@@ -3,6 +3,7 @@ import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import walletSlice from "./walletSlice";
 import toggleSlice from "./toggleSlice";
+import nftsSlice from "./nftsSlice";
 
 const persistConfig = {
    key: "root",
@@ -14,6 +15,7 @@ const reducers = combineReducers({
    // add reducers
    wallet: walletSlice,
    toggle: toggleSlice,
+   nfts: nftsSlice,
 });
 const persistedReducer = persistReducer(persistConfig, reducers);
 

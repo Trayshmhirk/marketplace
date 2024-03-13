@@ -12,6 +12,7 @@ import {
 } from "../redux/selector";
 import { setWalletData } from "../redux/walletSlice";
 import { setShowBuyModal, setToggleWalletAccount } from "../redux/toggleSlice";
+import { setCurrentNftCollection } from "../redux/nftsSlice";
 
 const Card = ({ NFTs, isSubNFTs }) => {
    const navigate = useNavigate();
@@ -48,7 +49,8 @@ const Card = ({ NFTs, isSubNFTs }) => {
          dispatch(setToggleWalletAccount());
       }
 
-      navigate("collections", { state: { data: item } });
+      navigate("collections");
+      dispatch(setCurrentNftCollection(item));
    };
 
    const handleBuyNFT = (item) => {
