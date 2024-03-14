@@ -12,25 +12,15 @@ const Home = () => {
    return (
       <div className="w-screen flex justify-center">
          <div className="container flex flex-col p-5 gap-20">
-            <div className="flex flex-col gap-3">
-               <div className="lines h-[14px] flex items-center gap-4 px-6">
-                  <div className="line h-full bg-brightGray rounded-3xl"></div>
-                  <div className="line h-full bg-brightGray rounded-3xl"></div>
-                  <div className="line h-full bg-brightGray rounded-3xl"></div>
-                  <div className="line h-full bg-brightGray rounded-3xl"></div>
-                  <div className="line h-full bg-brightGray rounded-3xl"></div>
-                  <div className="line h-full bg-brightGray rounded-3xl"></div>
-               </div>
-               <Hero
-                  collection="Night sky collection"
-                  title="With the stars"
-                  heroArtistImage={heroArtistImage}
-                  artistName="Léa Jacquot"
-                  heroImage={heroImage}
-                  isHomeHero
-                  NFTs={NFTsData}
-               />
-            </div>
+            <Hero
+               collection="Night sky collection"
+               title="With the stars"
+               heroArtistImage={heroArtistImage}
+               artistName="Léa Jacquot"
+               heroImage={heroImage}
+               isHomeHero
+               NFTs={NFTsData}
+            />
 
             <section className="collection flex flex-col gap-10 mb-20">
                <h2 className="text-xl font-extrabold text-black md:text-2xl">

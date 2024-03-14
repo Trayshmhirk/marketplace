@@ -82,4 +82,27 @@
    .line {
       width: calc(100% / 5.2);
    }
+
+   /* Add this CSS to your existing styles or create a new CSS file */
+
+   .dark-background {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      /* Adjust opacity and color as needed */
+      animation: lineAnimation 7s linear infinite;
+      /* Adjust the duration to match your slider */
+   }
+
+   @keyframes lineAnimation {
+      0% {
+         width: 0;
+      }
+
+      100% {
+         width: 100%;
+      }
+   }
 }
