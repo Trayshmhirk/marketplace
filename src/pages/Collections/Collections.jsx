@@ -3,20 +3,26 @@ import Hero from "../../components/Hero";
 import Card from "../../components/Card";
 import { useSelector } from "react-redux";
 import { selectCurrentNftCollection } from "../../redux/selector";
+import { useLocation } from "react-router-dom";
 
 const Collections = () => {
+   const location = useLocation();
+   const nftData = location.state?.data;
+
    const currentNftData = useSelector(selectCurrentNftCollection);
+
+   const renderNftData = nftData || currentNftData;
 
    return (
       <div className="w-screen flex justify-center">
          <div className="container flex flex-col p-5 gap-20">
             <Hero
                collection="Collection"
-               title={currentNftData.name}
-               heroArtistImage={currentNftData.artistImage}
-               artistName={currentNftData.artistName}
-               heroImage={currentNftData.nftImage}
-               description={currentNftData.description}
+               title={renderNftData.name}
+               heroArtistImage={renderNftData.artistImage}
+               artistName={renderNftData.artistName}
+               heroImage={renderNftData.nftImage}
+               description={renderNftData.description}
                isCollectionPage
             />
 
@@ -25,9 +31,9 @@ const Collections = () => {
                   NFTs
                </h2>
 
-               {currentNftData.subNFTs.length > 0 ? (
+               {renderNftData.subNFTs.length > 0 ? (
                   <div className="flex flex-wrap justify-between gap-10">
-                     <Card NFTs={currentNftData.subNFTs} isSubNFTs />
+                     <Card NFTs={renderNftData.subNFTs} isSubNFTs />
                   </div>
                ) : (
                   <span className="py-7 text-center text-auroMetalSaurus italic font-medium">

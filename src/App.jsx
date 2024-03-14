@@ -9,8 +9,6 @@ import nftData from "../src/NFTData";
 function App() {
    const dispatch = useDispatch();
 
-   console.log(nftData);
-
    useEffect(() => {
       dispatch(setNfts(nftData));
    }, [dispatch]);

@@ -81,7 +81,7 @@ const Hero = ({
          dispatch(setToggleWalletAccount());
       }
 
-      navigate("/collections");
+      navigate("/collections", { state: { data: item } });
       dispatch(setCurrentNftCollection(item));
    };
 

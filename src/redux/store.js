@@ -8,7 +8,7 @@ import nftsSlice from "./nftsSlice";
 const persistConfig = {
    key: "root",
    storage,
-   blacklist: ["toggle", "nfts", "wallet"],
+   blacklist: ["toggle"],
 };
 
 const reducers = combineReducers({
