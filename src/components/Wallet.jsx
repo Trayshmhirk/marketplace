@@ -25,6 +25,7 @@ const Wallet = () => {
    const currentWalletAddress = useSelector(selectWalletAddress);
    const walletData = useSelector(selectWalletData);
    const toggleWalletAccount = useSelector(selectToggleWalletAccount);
+   console.log(toggleWalletAccount);
 
    const [toggleChangeWallet, setToggleChangeWallet] = useState(false);
    const [isLoaded, setIsLoaded] = useState(false);
@@ -35,9 +36,7 @@ const Wallet = () => {
 
    useEffect(() => {
       // Simulate a delay to ensure the page has fully loaded
-      setTimeout(() => {
-         setIsLoaded(true);
-      }, 100); // Adjust the delay as needed
+      setIsLoaded(true);
    }, []);
 
    const handleCloseWallet = () => {

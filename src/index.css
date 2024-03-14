@@ -57,13 +57,10 @@
 
    @keyframes slideIn {
       from {
-         /* transform: translateX(120%); */
          @apply right-[-600px] opacity-0;
       }
 
       to {
-         /* transform: translateX(0); */
-         opacity: 1;
          @apply right-0 opacity-100;
       }
    }
@@ -71,15 +68,11 @@
    /* Define the slide-out animation */
    @keyframes slideOut {
       from {
-         /* transform: translateX(0); */
          @apply right-0 opacity-100;
-         visibility: visible;
       }
 
       to {
-         /* transform: translateX(120%); */
          @apply right-[-600px] opacity-0;
-         visibility: hidden;
       }
    }
 
