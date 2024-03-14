@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClone } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -27,10 +27,18 @@ const Wallet = () => {
    const toggleWalletAccount = useSelector(selectToggleWalletAccount);
 
    const [toggleChangeWallet, setToggleChangeWallet] = useState(false);
+   const [isLoaded, setIsLoaded] = useState(false);
 
    const filteredCurrentWallet = walletData.filter(
       (wallet) => wallet.walletAddress === currentWalletAddress
    );
+
+   useEffect(() => {
+      // Simulate a delay to ensure the page has fully loaded
+      setTimeout(() => {
+         setIsLoaded(true);
+      }, 100); // Adjust the delay as needed
+   }, []);
 
    const handleCloseWallet = () => {
       dispatch(setToggleWalletAccount());
@@ -66,7 +74,7 @@ const Wallet = () => {
 
    return (
       <div
-         className={`wallet-container ${toggleWalletAccount ? "wallet-active" : "wallet-hidden"} `}
+         className={`wallet-container ${toggleWalletAccount && isLoaded ? "wallet-active" : "wallet-hidden"} `}
       >
          <div className="absolute z-[0] top-4 left-[-40px] bottom-0 w-16 bg-[rgba(0,0,0,0.05)] rounded-xl rounded-b-none backdrop-blur-[10px] p-3 md:rounded-xl md:left-[-35px] md:p-2">
             <FontAwesomeIcon

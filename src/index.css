@@ -41,11 +41,13 @@
 
    .wallet-container {
       @apply fixed top-0 right-[-600px] w-[89.5%] bottom-0 z-50 sm:w-[93.5%] sm:right-[-800px] md:absolute md:top-5 md:w-fit md:bottom-[unset];
+      visibility: hidden;
    }
 
    .wallet-active {
       @apply right-0;
       animation: slideIn 300ms ease-in-out;
+      visibility: visible;
    }
 
    .wallet-hidden {
@@ -71,19 +73,19 @@
       from {
          /* transform: translateX(0); */
          @apply right-0 opacity-100;
+         visibility: visible;
       }
 
       to {
          /* transform: translateX(120%); */
          @apply right-[-600px] opacity-0;
+         visibility: hidden;
       }
    }
 
    .line {
       width: calc(100% / 5.2);
    }
-
-   /* Add this CSS to your existing styles or create a new CSS file */
 
    .dark-background {
       position: absolute;
