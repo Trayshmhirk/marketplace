@@ -91,9 +91,12 @@
       top: 0;
       height: 100%;
       width: 0;
-      /* Adjust opacity and color as needed */
+
       animation: lineAnimation 7s linear infinite;
-      /* Adjust the duration to match your slider */
+   }
+
+   .dark-background.paused {
+      animation-play-state: paused;
    }
 
    @keyframes lineAnimation {

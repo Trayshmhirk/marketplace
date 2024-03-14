@@ -15,6 +15,8 @@ import { setShowBuyModal, setToggleWalletAccount } from "../redux/toggleSlice";
 import { useNavigate } from "react-router-dom";
 import { setCurrentNftCollection } from "../redux/nftsSlice";
 import { setWalletData } from "../redux/walletSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 //
 
@@ -83,19 +85,44 @@ const Hero = ({
       dispatch(setCurrentNftCollection(item));
    };
 
+   function SampleNextArrow(props) {
+      const { onClick } = props;
+      return (
+         <div
+            className="absolute top-1/2 -right-3 w-8 h-8 flex items-center justify-center cursor-pointer bg-darkGunmetal rounded-full text-white font-bold md:-right-8 md:w-7 md:h-7"
+            onClick={onClick}
+         >
+            <FontAwesomeIcon icon={faAngleRight} />
+         </div>
+      );
+   }
+
+   function SamplePrevArrow(props) {
+      const { onClick } = props;
+      return (
+         <div
+            className="absolute top-1/2 -left-3 w-8 h-8 flex items-center justify-center cursor-pointer bg-darkGunmetal rounded-full text-white font-bold md:-left-8"
+            onClick={onClick}
+         >
+            <FontAwesomeIcon icon={faAngleLeft} />
+         </div>
+      );
+   }
+
    const settings = {
       dots: false,
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      speed: 1000,
+      speed: 700,
       autoplaySpeed: 7000,
       cssEase: "ease-in-out",
-      arrows: false,
-      pauseOnHover: true,
-      touchMove: true,
-      swipe: true,
+      // arrows: false,
+      // touchMove: true,
+      // swipe: true,
+      nextArrow: <SampleNextArrow className="w-8" />,
+      prevArrow: <SamplePrevArrow />,
       afterChange: (index) => setCurrentSlide(index),
    };
 
@@ -110,7 +137,9 @@ const Hero = ({
                         className="line relative h-full bg-brightGray rounded-3xl overflow-hidden"
                      >
                         {index === currentSlide && (
-                           <div className="dark-background bg-darkGunmetal rounded-3xl"></div>
+                           <div
+                              className={`dark-background bg-darkGunmetal rounded-3xl`}
+                           ></div>
                         )}
                      </div>
                   ))}
