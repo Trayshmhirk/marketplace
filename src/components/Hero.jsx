@@ -89,7 +89,7 @@ const Hero = ({
       const { onClick } = props;
       return (
          <div
-            className="absolute top-1/2 -right-3 w-8 h-8 flex items-center justify-center cursor-pointer bg-darkGunmetal rounded-full text-white font-bold md:-right-8 md:w-7 md:h-7"
+            className="absolute top-1/2 -right-3 w-8 h-8 flex items-center justify-center cursor-pointer bg-darkGunmetal rounded-full text-white font-bold md:-right-8 z-[1]"
             onClick={onClick}
          >
             <FontAwesomeIcon icon={faAngleRight} />
@@ -101,7 +101,7 @@ const Hero = ({
       const { onClick } = props;
       return (
          <div
-            className="absolute top-1/2 -left-3 w-8 h-8 flex items-center justify-center cursor-pointer bg-darkGunmetal rounded-full text-white font-bold md:-left-8"
+            className="absolute top-1/2 -left-3 w-8 h-8 flex items-center justify-center cursor-pointer bg-darkGunmetal rounded-full text-white font-bold md:-left-8 z-[1]"
             onClick={onClick}
          >
             <FontAwesomeIcon icon={faAngleLeft} />

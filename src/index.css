@@ -40,7 +40,7 @@
    }
 
    .wallet-container {
-      @apply fixed top-0 right-[-600px] w-[89.5%] bottom-0 sm:w-[93.5%] sm:right-[-800px] md:absolute md:top-5 md:w-fit md:bottom-[unset];
+      @apply fixed top-0 right-[-600px] w-[89.5%] bottom-0 z-50 sm:w-[93.5%] sm:right-[-800px] md:absolute md:top-5 md:w-fit md:bottom-[unset];
    }
 
    .wallet-active {
