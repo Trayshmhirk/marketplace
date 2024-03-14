@@ -118,10 +118,9 @@ const Hero = ({
       speed: 700,
       autoplaySpeed: 7000,
       cssEase: "ease-in-out",
-      // arrows: false,
-      // touchMove: true,
-      // swipe: true,
-      nextArrow: <SampleNextArrow className="w-8" />,
+      pauseOnHover: false,
+      touchMove: false,
+      nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
       afterChange: (index) => setCurrentSlide(index),
    };
