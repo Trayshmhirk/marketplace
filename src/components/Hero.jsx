@@ -45,7 +45,7 @@ const Hero = ({
          setCurrentSlide(
             (prevIndex) => (prevIndex + 1) % (NFTs ? NFTs[0].subNFTs.length : 1)
          );
-      }, 6000); // Adjust the duration to match your slider
+      }, 7000); // Adjust the duration to match your slider
 
       return () => clearTimeout(timer);
    }, [currentSlide, NFTs]);
