@@ -4,7 +4,7 @@ import "./App.css";
 import Router from "./router";
 import { useDispatch } from "react-redux";
 import { setNfts } from "./redux/nftsSlice";
-import nftData from "../src/NFTData.json";
+import nftData from "../src/NFTData";
 
 function App() {
    const dispatch = useDispatch();
@@ -12,26 +12,7 @@ function App() {
    console.log(nftData);
 
    useEffect(() => {
-      const fetchNFTsData = async () => {
-         try {
-            const res = await fetch("/src/NFTData.json");
-            const data = await res.json();
-            console.log(data);
-
-            if (res.status === 200) {
-               //
-               dispatch(setNfts(data));
-            }
-         } catch (error) {
-            console.error(error);
-            // You can also check error.response to see the server's response
-            if (error.response) {
-               console.error("Error response from server:", error.response);
-            }
-         }
-      };
-
-      fetchNFTsData();
+      dispatch(setNfts(nftData));
    }, [dispatch]);
 
    return (
