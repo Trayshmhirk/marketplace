@@ -4,15 +4,19 @@ import "./App.css";
 import Router from "./router";
 import { useDispatch } from "react-redux";
 import { setNfts } from "./redux/nftsSlice";
+import nftData from "../src/NFTData.json";
 
 function App() {
    const dispatch = useDispatch();
 
+   console.log(nftData);
+
    useEffect(() => {
       const fetchNFTsData = async () => {
          try {
-            const res = await fetch("../src/NFTData.json");
+            const res = await fetch("/src/NFTData.json");
             const data = await res.json();
+            console.log(data);
 
             if (res.status === 200) {
                //
